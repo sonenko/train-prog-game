@@ -10,18 +10,21 @@ import scala.scalajs.js.annotation.JSExport
 object Main {
   @JSExport
   def main(): Unit = {
-    val canvasEl = dom.document.getElementById("canvas")
+    val canvasEl: Element = dom.document.getElementById("canvas")
     val canvas: CanvasRenderingContext2D = canvasEl.asInstanceOf[html.Canvas]
       .getContext("2d").asInstanceOf[dom.CanvasRenderingContext2D]
     val box: Element = dom.document.getElementById("box")
 
     val w = canvasEl.getAttribute("width").toInt
     val h = canvasEl.getAttribute("height").toInt
+    // hack retina
     val pixelRatio = dom.window.devicePixelRatio
     canvasEl.setAttribute("width", (w * pixelRatio).toString)
     canvasEl.setAttribute("height", (h * pixelRatio).toString)
     canvasEl.setAttribute("style", s"width: ${w}px; height: ${h}px;" )
     canvas.scale(dom.window.devicePixelRatio, dom.window.devicePixelRatio)
+    // hack retina end
+
     new App(canvas, box, w, h)
   }
 }
