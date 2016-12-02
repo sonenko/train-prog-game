@@ -2,30 +2,15 @@ package train
 
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
-import org.scalajs.dom.{CanvasRenderingContext2D, html}
 
 import scala.scalajs.js.annotation.JSExport
 
+
 @JSExport
-object Main {
-  @JSExport
-  def main(): Unit = {
-    val canvasEl: Element = dom.document.getElementById("canvas")
-    val canvas: CanvasRenderingContext2D = canvasEl.asInstanceOf[html.Canvas]
-      .getContext("2d").asInstanceOf[dom.CanvasRenderingContext2D]
-    val box: Element = dom.document.getElementById("box")
-
-    val w = canvasEl.getAttribute("width").toInt
-    val h = canvasEl.getAttribute("height").toInt
-    // hack retina
-    val pixelRatio = dom.window.devicePixelRatio
-    canvasEl.setAttribute("width", (w * pixelRatio).toString)
-    canvasEl.setAttribute("height", (h * pixelRatio).toString)
-    canvasEl.setAttribute("style", s"width: ${w}px; height: ${h}px;" )
-    canvas.scale(dom.window.devicePixelRatio, dom.window.devicePixelRatio)
-    // hack retina end
-
-    new App(canvas, box, w, h)
-  }
+class Main {
+  val canvas2dSettings: CanvasSettings = scaleToRetinaSize(dom.document.getElementById("canvas"))
+  val commandsEl: Element = dom.document.getElementById("commands")
+  val codeEl: Element = dom.document.getElementById("code")
+  new App(canvas2dSettings.canvas, canvas2dSettings.width, canvas2dSettings.height, commandsEl, codeEl)
 }
 

@@ -1,27 +1,57 @@
+/*
+black: #001010;
+90: #212121;
+80: #333333;
+70: #293134;
+50: #728282;
+0: #00CC7D;
+~ #EC7600
+~ #92C562
+~ #444B4E
+~ #B9640E
+~ #678BB0
+~ #293134
+ */
+
 * {
     font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
-    color: #555555;
+    color: #00CC7D;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #212121;
+}
+
+.box {
+    background-color: #293134;
+    box-shadow: 0 0 2px #00CC7D;
+    padding: 10px 10px;
+    margin-top: 20px;
 }
 
 #canvas {
-    margin: auto;
     display: block;
-}
-
-#box {
-    min-height: 400px;
-    background-color: #ffffff;
-    box-shadow: 0 0 1px #c5c5c5;
-    display: block;
-    border: 1px solid #d5d5d5;
-    width: 900px;
     margin: auto;
     margin-top: 20px;
-    padding: 10px 15px;
+    box-shadow: 0 0 3px #00CC7D;
+}
+
+#code-box {
+    min-height: 300px;
+    width: 1400px;
+    margin: auto;
+}
+
+#commands {
+    float: left;
+    width: 330px;
+    margin-bottom: 20px;
+}
+
+#code {
+    float: left;
+    width: 1000px;
+    margin-left: 30px;
 }

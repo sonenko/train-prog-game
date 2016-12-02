@@ -6,14 +6,26 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+<h4><center>Write pseudo code that will be used by 2 trains and will entail situation when
+    rear train will catch up with the first</center></h4>
+<canvas id="canvas" height="120" width="1400"></canvas>
+<div id="code-box">
+    <div id="commands" class="box">
+        hello
+    </div>
+    <div id="code" class="box">
+        command 1<br>
+        command 2<br>
+        command 3<br>
+    </div>
+</div>
 
-<canvas id="canvas" width="1400" height="200"></canvas>
-<div id="box"></div>
 
-<script type="text/javascript" src="../example-fastopt.js"></script>
+<script type="text/javascript" src="../train-programming-game-jsdeps.js"></script>
+<script type="text/javascript" src="../train-programming-game-fastopt.js"></script>
 <script type="text/javascript" src="/workbench.js"></script>
 <script>
-  train.Main().main()
+  train.Main();
 </script>
 </body>
 </html>
