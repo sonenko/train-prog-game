@@ -12,6 +12,15 @@ black: #001010;
 ~ #678BB0
 ~ #293134
  */
+c{
+    color: #EC7600;
+    color: #92C562;
+    color: #444B4E;
+    color: #B9640E;
+    color: #678BB0;
+    color: #293134;
+}
+
 
 * {
     font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -22,12 +31,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #212121;
+    font-size: 14px;
+}
+h4 {
+    font-size: 130%;
 }
 
 .box {
     background-color: #293134;
     box-shadow: 0 0 2px #00CC7D;
-    padding: 10px 10px;
+    padding: 0px 10px 10px 10px;
     margin-top: 20px;
 }
 
@@ -40,18 +53,99 @@ body {
 
 #code-box {
     min-height: 300px;
-    width: 1400px;
+    width: 1000px;
     margin: auto;
 }
 
 #commands {
     float: left;
-    width: 330px;
+    width: 230px;
     margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 #code {
     float: left;
-    width: 1000px;
-    margin-left: 30px;
+    width: 460px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+#action {
+    float: left;
+    width: 200px;
+    height: 250px;
+}
+
+.command {
+    margin: 5px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    color: #293134;
+}
+
+.wait {
+    background-color: #d5d5d5;
+}
+.go-forward {
+    background-color: #EC7600;
+}
+.if-station {
+    background-color: #678BB0;
+}
+.goto {
+    background-color: #92C562;
+}
+
+#code-lines{
+    border-right: 1px solid #444B4E;
+    width: 30px;
+    margin: 0px;
+    padding: 0;
+    float: left;
+}
+#code-lines div{
+    margin: 5px;
+    padding: 10px 0px;
+}
+
+#code-content{
+    float: left;
+    width: 350px;
+    /*border: 2px dashed #678BB0;*/
+    border: 2px dashed transparent;;
+    color: red;
+    height: 700px;
+}
+
+#commands-box {
+    border: 2px dashed transparent;
+}
+
+/* RUN BUTTON */
+#run-button {
+    width: 140px;
+    height:140px;
+    background-color: #293134;
+    border-radius: 70px;
+    margin: auto;
+    box-shadow: 0 0 10px #00CC7D;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+#run-button:hover {
+    background-color: #72A542;
+}
+
+#run-triangle {
+    width: 0;
+    height: 0;
+    border-top: 70px solid transparent;
+    border-bottom: 70px solid transparent;
+    border-left: 70px solid #92C562;
+    transform: scaleY(.5);
+    border-radius: 5px;
+    margin-left: 45px;
+    margin-top: 20px;
 }

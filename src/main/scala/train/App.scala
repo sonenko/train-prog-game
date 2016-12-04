@@ -11,13 +11,13 @@ class App(ctx: CanvasRenderingContext2D, width: Int, height: Int, commandsEl: El
   init()
 
   def init(): Unit = {
-    ctx.fillStyle = "#e5e5e5"
+    ctx.fillStyle = "#d5d5d5"
     ctx.fillRect(0, 0, width, height)
     drawRails()
   }
 
   def clear(): Unit = {
-    ctx.fillStyle = "#e5e5e5"
+    ctx.fillStyle = "#d5d5d5"
     ctx.fillRect(0, 0, width, height - 14)
   }
 
@@ -58,25 +58,29 @@ class App(ctx: CanvasRenderingContext2D, width: Int, height: Int, commandsEl: El
     ctx.fillStyle = "#353535"
     ctx.beginPath()
     ctx.moveTo(x,railsY - 2)
-    ctx.lineTo(x + 10,railsY - 8)
-    ctx.lineTo(x + 60,railsY - 8)
+    ctx.lineTo(x + 10,railsY - 6)
+    ctx.lineTo(x + 60,railsY - 6)
     ctx.lineTo(x + 70,railsY - 2)
     ctx.fill()
     // columns
     def drawColumn(x: Int): Unit = {
       ctx.beginPath()
-      ctx.moveTo(x,railsY - 8)
-      ctx.lineTo(x,railsY - 23)
-      ctx.lineTo(x + 4,railsY - 23)
-      ctx.lineTo(x + 4,railsY - 8)
+      ctx.moveTo(x,railsY - 6)
+      ctx.lineTo(x,railsY - 20)
+      ctx.lineTo(x + 2,railsY - 20)
+      ctx.lineTo(x + 2,railsY - 6)
       ctx.fill()
     }
     (10 to 50 by 10).foreach{ c => drawColumn(x + c + 4)}
     // roof
     ctx.beginPath()
-    ctx.moveTo(x, railsY - 23)
-    ctx.lineTo(x + 35, railsY - 28)
-    ctx.lineTo(x + 70, railsY - 23)
+    ctx.moveTo(x + 14, railsY - 20)
+    ctx.lineTo(x + 14,railsY - 22)
+    ctx.bezierCurveTo(
+      x + 14, railsY - 30,
+      x + 56, railsY - 30,
+      x + 56,railsY - 22)
+    ctx.lineTo(x + 56,railsY - 20)
     ctx.fill()
   }
 
@@ -121,3 +125,4 @@ object State {
     rearTrain = rearTrain.copy(toX = rearTrain.nowX + 50)
   }
 }
+
