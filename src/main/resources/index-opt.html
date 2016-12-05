@@ -7,35 +7,39 @@
 </head>
 <body>
 
-<h4><center>Write pseudo code that will be used by 2 trains and will entail situation when
-    rear train will catch up with the first</center></h4>
+<h4>
+    Write pseudo code that will be used by 2 trains and will entail situation when
+    rear train will catch up with the first
+</h4>
 <canvas id="canvas" height="120" width="1400"></canvas>
 <div id="code-box">
     <div id="commands" class="box">
-        <h4><center>Available commands</center></h4>
+        <h4>Available commands</h4>
         <div id="commands-box">
-            <div class="command wait">Wait</div>
-            <div class="command go-forward">GoForward</div>
-            <div class="command if-station">IfStation</div>
-            <div class="command goto">GoTo</div>
+            <div class="command wait" draggable="true">Wait</div>
+            <div class="command go-forward" draggable="true">GoForward</div>
+            <div class="command if-station" draggable="true">IfStation</div>
+            <div class="command goto" draggable="true">GoTo</div>
         </div>
+
+        <h4>Run program</h4>
+        <div id="run-button">
+            <div id="run-triangle"></div>
+        </div>
+        <br />
     </div>
     <div id="code" class="box">
-        <h4><center>Program zone (drop commands from left here)</center></h4>
+        <h4>Program zone (drop commands from left here)</h4>
         <div id="code-lines"></div>
         <div id="code-content">
-            <div class="command goto">GoTo</div>
-            <div class="command goto">GoTo</div>
-            <div class="command goto">GoTo</div>
-            <div class="command goto">GoTo</div>
-            <div class="command goto">GoTo</div>
+            <!--<div class="command go-forward">GoForward</div>-->
         </div>
     </div>
 </div>
 
 <script type="text/javascript" src="../train-programming-game-opt.js"></script>
 <script>
-  train.Main();
+  window.globals = train.Main().globals;
 </script>
 </body>
 </html>

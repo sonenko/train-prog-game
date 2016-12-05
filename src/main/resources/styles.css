@@ -1,18 +1,3 @@
-/*
-black: #001010;
-90: #212121;
-80: #333333;
-70: #293134;
-50: #728282;
-0: #00CC7D;
-~ #EC7600
-~ #92C562
-~ #444B4E
-~ #B9640E
-~ #678BB0
-~ #293134
- */
-
 * {
     font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
     color: #00CC7D;
@@ -26,22 +11,20 @@ body {
 }
 h4 {
     font-size: 130%;
+    text-align: center;
 }
-
 .box {
     background-color: #293134;
     box-shadow: 0 0 2px #00CC7D;
     padding: 0px 10px 10px 10px;
     margin-top: 20px;
 }
-
 #canvas {
     display: block;
     margin: auto;
     margin-top: 20px;
     box-shadow: 0 0 3px #00CC7D;
 }
-
 #code-box {
     min-height: 300px;
     width: 1000px;
@@ -54,27 +37,32 @@ h4 {
     margin-bottom: 20px;
     margin-right: 20px;
 }
-
 #code {
     float: left;
-    width: 460px;
+    width: 600px;
     margin-bottom: 20px;
     margin-right: 20px;
 }
-
-#action {
-    float: left;
-    width: 200px;
-    height: 250px;
-}
-
 .command {
     margin: 5px;
     padding: 10px 25px;
     border-radius: 5px;
     color: #293134;
+    width: 165px;
+    height: 16px;
 }
-
+#code .command{
+    width: 500px;
+}
+.dragging {
+    position: absolute;;
+    top: 0;
+    left: 0;
+}
+.over{
+    background-color: #a5a5a5;
+    opacity: 0.5;
+}
 .wait {
     background-color: #d5d5d5;
 }
@@ -87,7 +75,6 @@ h4 {
 .goto {
     background-color: #92C562;
 }
-
 #code-lines{
     border-right: 1px solid #444B4E;
     width: 30px;
@@ -99,16 +86,17 @@ h4 {
     margin: 5px;
     padding: 10px 0px;
 }
-
 #code-content{
     float: left;
-    width: 350px;
-    /*border: 2px dashed #678BB0;*/
+    width: 560px;
     border: 2px dashed transparent;;
+    border-radius: 7px;
     color: red;
-    height: 700px;
+    height: 820px;
 }
-
+#code-content.highlight{
+    border: 2px dashed #678BB0;
+}
 #commands-box {
     border: 2px dashed transparent;
 }
@@ -124,11 +112,9 @@ h4 {
     cursor: pointer;
     transition: background-color 0.5s;
 }
-
 #run-button:hover {
     background-color: #72A542;
 }
-
 #run-triangle {
     width: 0;
     height: 0;

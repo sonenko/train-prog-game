@@ -1,6 +1,6 @@
 import org.scalajs.dom
 import org.scalajs.dom.html
-import org.scalajs.dom.raw.Element
+import org.scalajs.dom.raw.{Element, HTMLCollection}
 
 package object train {
 
@@ -21,4 +21,10 @@ package object train {
     canvas.scale(ratio, ratio)
     CanvasSettings(oldWidth, oldHeight, canvas)
   }
+
+
+  implicit class HTMLCollectionToList(collection: HTMLCollection) {
+    def toList: List[Element] = (0 until collection.length).toList.map(i => collection(i))
+  }
+
 }
