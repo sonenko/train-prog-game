@@ -1,6 +1,6 @@
 import org.scalajs.dom
-import org.scalajs.dom.html
-import org.scalajs.dom.raw.{Element, HTMLCollection}
+import org.scalajs.dom.{NodeList, html}
+import org.scalajs.dom.raw.{DOMList, DOMTokenList, Element, HTMLCollection}
 
 package object train {
 
@@ -23,8 +23,11 @@ package object train {
   }
 
 
-  implicit class HTMLCollectionToList(collection: HTMLCollection) {
-    def toList: List[Element] = (0 until collection.length).toList.map(i => collection(i))
+  implicit class DOMListToList[T](collection: DOMList[T]) {
+    def toList: List[T] = (0 until collection.length).toList.map(i => collection(i))
   }
 
+  implicit class DOMTokenListToList(collection: DOMTokenList) {
+    def toList: List[String] = (0 until collection.length).toList.map(i => collection(i))
+  }
 }

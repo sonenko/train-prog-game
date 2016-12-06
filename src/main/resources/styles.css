@@ -44,6 +44,13 @@ h4 {
     margin-right: 20px;
 }
 .command {
+    padding: 10px 25px;
+    border-radius: 5px;
+    color: #293134;
+    width: 165px;
+    height: 16px;
+}
+#commands-box > .command {
     margin: 5px;
     padding: 10px 25px;
     border-radius: 5px;
@@ -51,8 +58,21 @@ h4 {
     width: 165px;
     height: 16px;
 }
+.command-placeholder {
+    opacity: 1;
+    border-radius: 5px;
+    height: 31px;
+    padding: 5px;
+}
+.command-placeholder .over{
+    opacity: 0.3;
+    background-color: white;
+}
 #code .command{
     width: 500px;
+}
+#code .command.wait, #code .command.goforward, #code .command.ifstation, #code .command.goto{
+    width: 200px;
 }
 .dragging {
     position: absolute;;
@@ -66,14 +86,14 @@ h4 {
 .wait {
     background-color: #d5d5d5;
 }
-.go-forward {
+.goforward {
     background-color: #EC7600;
-}
-.if-station {
-    background-color: #678BB0;
 }
 .goto {
     background-color: #92C562;
+}
+.ifstation {
+    background-color: #678BB0;
 }
 #code-lines{
     border-right: 1px solid #444B4E;

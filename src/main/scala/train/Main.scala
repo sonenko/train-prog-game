@@ -12,7 +12,6 @@ object Main {
   val canvas2dSettings: CanvasSettings = scaleToRetinaSize(dom.document.getElementById("canvas"))
   val commandsEl: Element = dom.document.getElementById("commands")
   val codeEl: Element = dom.document.getElementById("code")
-  CodeEditor.init()
 
   DragAndDrop.init()
 
