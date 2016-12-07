@@ -11,14 +11,40 @@
     Write pseudo code that will be used by 2 trains and will entail situation when
     rear train will catch up with the first
 </h4>
+
 <canvas id="canvas" height="120" width="1400"></canvas>
-<div id="code-box">
-    <div id="commands" class="box">
+
+<div class="container">
+    <div class="nav box">
         <h4>Available commands</h4>
-        <div id="commands-box">
+        <div id="commands">
             <div class="command wait" draggable="true" data-index="0">Wait</div>
             <div class="command goforward" draggable="true" data-index="1">GoForward</div>
-            <div class="command goto" draggable="true" data-index="2">GoTo</div>
+            <div class="command goto" draggable="true" data-index="2">
+                GoTo
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                </select>
+            </div>
             <div class="command ifstation" draggable="true" data-index="3">IfStation</div>
         </div>
 
@@ -26,36 +52,11 @@
         <div id="run-button">
             <div id="run-triangle"></div>
         </div>
-        <br />
     </div>
-    <div id="code" class="box">
+
+    <div id="editor" class="box">
         <h4>Program zone (drop commands from left here)</h4>
-        <div id="code-lines">
-            <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
-            <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
-        </div>
-        <div id="code-content">
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-            <div class="command-placeholder"></div>
-        </div>
+        <ul id="code"></ul>
     </div>
 </div>
 
