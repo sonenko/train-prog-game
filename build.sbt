@@ -6,7 +6,7 @@ name := "Train programming game"
 
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.12.0"
+scalaVersion := "2.12.1"
 
 libraryDependencies ++= Seq(
   "org.scala-js" %%% "scalajs-dom" % "0.9.1"
