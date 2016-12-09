@@ -1,5 +1,5 @@
 import org.scalajs.dom
-import org.scalajs.dom.{NodeList, html}
+import org.scalajs.dom.{NodeList, html, Node}
 import org.scalajs.dom.raw.{DOMList, DOMTokenList, Element, HTMLCollection}
 
 package object train {
@@ -29,5 +29,9 @@ package object train {
 
   implicit class DOMTokenListToList(collection: DOMTokenList) {
     def toList: List[String] = (0 until collection.length).toList.map(i => collection(i))
+  }
+
+  implicit class NodeToElement(node: Node) {
+    def asElement: Element = node.asInstanceOf[Element]
   }
 }
