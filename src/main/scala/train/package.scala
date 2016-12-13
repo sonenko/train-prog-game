@@ -1,6 +1,8 @@
 import org.scalajs.dom
-import org.scalajs.dom.{NodeList, html, Node}
+import org.scalajs.dom.{Node, NodeList, html}
 import org.scalajs.dom.raw.{DOMList, DOMTokenList, Element, HTMLCollection}
+
+import scala.scalajs.js
 
 package object train {
 
@@ -31,7 +33,9 @@ package object train {
     def toList: List[String] = (0 until collection.length).toList.map(i => collection(i))
   }
 
-  implicit class NodeToElement(node: Node) {
+  implicit class NodeToExtension(node: Node) {
     def asElement: Element = node.asInstanceOf[Element]
   }
+
+  def toDictionary[T](x: Any): js.Dictionary[T] = x.asInstanceOf[js.Dictionary[T]]
 }
