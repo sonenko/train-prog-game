@@ -1,6 +1,6 @@
 import org.scalajs.dom
-import org.scalajs.dom.{Node, NodeList, html}
-import org.scalajs.dom.raw.{DOMList, DOMTokenList, Element, HTMLCollection}
+import org.scalajs.dom.raw.{DOMList, DOMTokenList, Element}
+import org.scalajs.dom.{Node, html}
 
 import scala.scalajs.js
 

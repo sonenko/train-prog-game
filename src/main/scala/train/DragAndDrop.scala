@@ -7,14 +7,13 @@ import scala.scalajs.js
 
 object DragAndDrop {
 
-  val codeLinesEl: Element = document.querySelector(".code-lines")
-
   def init(): Unit = {
     generateTextEditor()
     initDragAndDrop()
   }
 
   def generateTextEditor(): Unit = {
+    val codeLinesEl: Element = document.querySelector(".code-lines")
     codeLinesEl.innerHTML = (1 to 20).map { n =>
       s"""<li>
          |  <div class="line-number">$n</div>
@@ -26,26 +25,26 @@ object DragAndDrop {
   }
 
   def initDragAndDrop(): Unit = {
-    val dropZoneEls = document.querySelectorAll(".code-lines .command-placeholder").toList.map(_.asElement)
+    val allDropZoneEls = document.querySelectorAll(".code-lines .command-placeholder").toList.map(_.asElement)
     val dragEls = document.querySelectorAll("#commands > div").toList.map(_.asElement)
 
     def addDragListeners(dragEl: Element): Unit = {
       def dropElems() =
-        if (dragEl.classList.contains("ifstation")) dropZoneEls.filter(_.classList.contains("command-placeholder-1"))
-        else dropZoneEls.filter(_.classList.contains("droppable"))
+        if (dragEl.classList.contains("ifstation")) allDropZoneEls.filter(_.classList.contains("command-placeholder-1"))
+        else allDropZoneEls.filter(_.classList.contains("droppable"))
 
-      val onDragEnd: js.Function1[DragEvent, Unit] = event => {
+      val onDragEnd: js.Function1[DragEvent, Unit] = _ => {
         dropElems().foreach(dropEl => {
           dropEl.classList.remove("highlight")
-          val dropElDict = toDictionary[js.Function1[Any, Unit]](dropEl)
-          dropElDict("removeDropListeners")(1)
+          val dropElDict = toDictionary[js.Function0[Unit]](dropEl)
+          dropElDict("removeDropListeners")()
         })
       }
       val onDragStart: js.Function1[DragEvent, Unit] = event => {
         dropElems().foreach(dropEl => {
           dropEl.classList.add("highlight")
-          val dropElDict = toDictionary[js.Function1[Any, Unit]](dropEl)
-          dropElDict("addDropListeners")(1)
+          val dropElDict = toDictionary[js.Function0[Unit]](dropEl)
+          dropElDict("addDropListeners")()
         })
         event.dataTransfer.setData("index", dragEl.getAttribute("data-index"))
       }
@@ -53,18 +52,18 @@ object DragAndDrop {
       dragEl.addEventListener("dragend", onDragEnd)
     }
 
-    def addDropListeners(dropZoneEl: Element): Unit = {
-      val dropZoneDict = toDictionary[js.Function1[Any, Unit]](dropZoneEl)
+    def setupDropListeners(dropZoneEl: Element): Unit = {
+      val dropZoneDict = toDictionary[js.Function0[Unit]](dropZoneEl)
       dropZoneDict.update("addDropListeners", addListeners)
       dropZoneDict.update("removeDropListeners", removeListeners)
 
-      lazy val addListeners: js.Function1[Any, Unit] = _ => {
+      lazy val addListeners: js.Function0[Unit] = () => {
         dropZoneEl.addEventListener("drop", onDrop)
         dropZoneEl.addEventListener("dragenter", onDragEnter)
         dropZoneEl.addEventListener("dragleave", onDragLeave)
         dropZoneEl.addEventListener("dragover", onDragOver)
       }
-      lazy val removeListeners: js.Function1[Any, Unit] = _ => {
+      lazy val removeListeners: js.Function0[Unit] = () => {
         dropZoneEl.removeEventListener("drop", onDrop)
         dropZoneEl.removeEventListener("dragenter", onDragEnter)
         dropZoneEl.removeEventListener("dragleave", onDragLeave)
@@ -86,6 +85,7 @@ object DragAndDrop {
           if (index != 3) {
             // any
             nextDropZone.classList.remove("droppable")
+            toDictionary[js.Function0[Unit]](nextDropZone)("removeDropListeners")()
           } else {
             // ifStation
             nextDropZone.classList.add("droppable")
@@ -94,7 +94,6 @@ object DragAndDrop {
           // second column
           if (index != 3) {
             // any
-            dropZoneEl.appendChild(command)
           } else {
             // ifStation
             console.warn("unexpected ifstation command in second column")
@@ -109,7 +108,7 @@ object DragAndDrop {
       lazy val onDragOver: js.Function1[DragEvent, Unit] = event => event.preventDefault()
     }
 
-    dropZoneEls.foreach(addDropListeners)
+    allDropZoneEls.foreach(setupDropListeners)
     dragEls.foreach(addDragListeners)
   }
 }
