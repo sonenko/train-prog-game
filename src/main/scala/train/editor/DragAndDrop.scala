@@ -1,31 +1,17 @@
 package train
+package editor
 
-import org.scalajs.dom.{console, document}
 import org.scalajs.dom.raw.{DragEvent, Element}
+import org.scalajs.dom.{console, document}
 
 import scala.scalajs.js
 
 object DragAndDrop {
 
+  val allDropZoneEls: Seq[Element] =
+    document.querySelectorAll(".code-lines .command-placeholder").toList.map(_.asElement)
+
   def init(): Unit = {
-    generateTextEditor()
-    initDragAndDrop()
-  }
-
-  def generateTextEditor(): Unit = {
-    val codeLinesEl: Element = document.querySelector(".code-lines")
-    codeLinesEl.innerHTML = (1 to 20).map { n =>
-      s"""<li>
-         |  <div class="line-number">$n</div>
-         |  <div class="command-placeholder command-placeholder-1 droppable"></div>
-         |  <div class="command-placeholder command-placeholder-2"></div>
-         |</li>
-      """.stripMargin
-    }.mkString("")
-  }
-
-  def initDragAndDrop(): Unit = {
-    val allDropZoneEls = document.querySelectorAll(".code-lines .command-placeholder").toList.map(_.asElement)
     val dragEls = document.querySelectorAll("#commands > div").toList.map(_.asElement)
 
     def addDragListeners(dragEl: Element): Unit = {

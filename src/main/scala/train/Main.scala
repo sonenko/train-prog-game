@@ -2,6 +2,7 @@ package train
 
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
+import train.editor.{DragAndDrop, Editor}
 
 import scala.scalajs.js.annotation.JSExport
 
@@ -12,8 +13,10 @@ object Main {
   val commandsEl: Element = dom.document.getElementById("commands")
   val codeEl: Element = dom.document.getElementById("code")
 
+  Editor.init()
+
   DragAndDrop.init()
 
-  new App(canvas2dSettings.canvas, canvas2dSettings.width, canvas2dSettings.height, commandsEl, codeEl)
+  new Animation(canvas2dSettings.canvas, canvas2dSettings.width, canvas2dSettings.height, commandsEl, codeEl)
 }
 

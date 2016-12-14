@@ -1,20 +1,17 @@
 package train
 
-
 import org.scalajs.dom
 import org.scalajs.dom.CanvasRenderingContext2D
 import org.scalajs.dom.raw.Element
 
-class App(ctx: CanvasRenderingContext2D, width: Int, height: Int, commandsEl: Element, codeEl: Element) {
+class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commandsEl: Element, codeEl: Element) {
   private val railsY = height / 10 * 9
 
-  init()
-
-  def init(): Unit = {
-    ctx.fillStyle = "#d5d5d5"
-    ctx.fillRect(0, 0, width, height)
-    drawRails()
-  }
+  ctx.fillStyle = "#d5d5d5"
+  ctx.fillRect(0, 0, width, height)
+  drawRails()
+  dom.window.setInterval(() => draw(), 50)
+  dom.window.setInterval(() => State.update(), 1000)
 
   def clear(): Unit = {
     ctx.fillStyle = "#d5d5d5"
@@ -99,31 +96,7 @@ class App(ctx: CanvasRenderingContext2D, width: Int, height: Int, commandsEl: El
     ctx.lineTo(x , railsY - 2)
     ctx.fill()
   }
-
-  dom.window.setInterval(() => draw(), 50)
-  dom.window.setInterval(() => State.update(), 1000)
 }
 
-case class Train(nowX: Int, toX: Int, color: String)
-
-object State {
-
-  var rearTrain = Train(50, 50, "#425275")
-  var leadTrain = Train(400, 400, "#625252")
-  def trainMoved(tr: Train): Train = {
-    if (tr.nowX != tr.toX) tr.copy(nowX = tr.nowX + 3)
-    else tr
-  }
-
-
-  def tick(): Unit = {
-    rearTrain = trainMoved(rearTrain)
-    leadTrain = trainMoved(leadTrain)
-  }
-
-  def update(): Unit = {
-    rearTrain = rearTrain.copy(toX = rearTrain.nowX + 50)
-  }
-}
 
 
