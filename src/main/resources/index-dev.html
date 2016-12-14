@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Train</title>
+    <title>Game</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
+
+<div id="socials">
+    <a href="https://github.com/sonenko/train-prog-game" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+    <!--<a href="http://www.facebook.com/share.php?u=[URL]&title=[TITLE]"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>-->
+    <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=[URL]&title=[TITLE]&source=[SOURCE/DOMAIN]" target="_blank"><i class="fa fa-linkedin-square " aria-hidden="true"></i></a>-->
+</div>
 
 <h4>
     Write pseudo code that will be used by 2 trains and will entail situation when
@@ -50,8 +57,8 @@
         </div>
 
         <h4>Run program</h4>
-        <div id="run-button">
-            <div id="run-triangle"></div>
+        <div id="run-button" class="waiting">
+            <div class="run-icon"></div>
         </div>
     </div>
 
@@ -60,7 +67,6 @@
         <ul class="code-lines"></ul>
     </div>
 </div>
-
 
 <script type="text/javascript" src="../train-programming-game-jsdeps.js"></script>
 <script type="text/javascript" src="../train-programming-game-fastopt.js"></script>

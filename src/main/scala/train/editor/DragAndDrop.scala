@@ -15,9 +15,11 @@ object DragAndDrop {
     val dragEls = document.querySelectorAll("#commands > div").toList.map(_.asElement)
 
     def addDragListeners(dragEl: Element): Unit = {
-      def dropElems() =
-        if (dragEl.classList.contains("ifstation")) allDropZoneEls.filter(_.classList.contains("command-placeholder-1"))
+      def dropElems() = {
+        if (Execution.isRunning) Nil
+        else if (dragEl.classList.contains("ifstation")) allDropZoneEls.filter(_.classList.contains("command-placeholder-1"))
         else allDropZoneEls.filter(_.classList.contains("droppable"))
+      }
 
       val onDragEnd: js.Function1[DragEvent, Unit] = _ => {
         dropElems().foreach(dropEl => {

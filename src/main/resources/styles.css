@@ -55,20 +55,21 @@ h4 {
 #run-button {
     width: 140px;
     height: 140px;
-    background-color: #293134;
+    background-color: #212121;
     border-radius: 70px;
     margin: auto;
     margin-bottom: 30px;
     box-shadow: 0 0 10px #00CC7D;
     cursor: pointer;
     transition: background-color 0.5s;
+    position: relative;
 }
 
 #run-button:hover {
-    background-color: #72A542;
+    background-color: #629532;
 }
 
-#run-triangle {
+.waiting .run-icon {
     width: 0;
     height: 0;
     border-top: 70px solid transparent;
@@ -78,6 +79,15 @@ h4 {
     border-radius: 5px;
     margin-left: 45px;
     margin-top: 20px;
+}
+
+.running .run-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #92C562;
+    margin-left: 35px;
+    position: absolute;
+    top: 35px;
 }
 
 /* EDITOR */
@@ -186,3 +196,13 @@ select {
 }
 
 /* EDITOR END */
+#socials {
+    float: right;
+    margin-right: 30px;
+    margin-top: -12px;
+}
+
+#socials *{
+    font-size: 39px;
+    margin-left: 3px;
+}
