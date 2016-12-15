@@ -10,8 +10,7 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commands
   ctx.fillStyle = "#d5d5d5"
   ctx.fillRect(0, 0, width, height)
   drawRails()
-  dom.window.setInterval(() => draw(), 50)
-  dom.window.setInterval(() => State.update(), 1000)
+  dom.window.setInterval(() => draw(), 30)
 
   def clear(): Unit = {
     ctx.fillStyle = "#d5d5d5"
@@ -21,7 +20,7 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commands
   def draw(): Unit = {
     State.tick()
     clear()
-    drawStation(250)
+    drawStation(265)
     // lead train
     drawTrain(State.leadTrain.nowX, State.leadTrain.color)
     // rear train
@@ -31,7 +30,7 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commands
   def drawRails(): Unit = {
     drawHorizontalRail(railsY - 1)
     drawHorizontalRail(railsY + 1)
-    for {x <- 0 to (width - 20) by 5} {
+    for {x <- 2 to width by 5} {
       drawJumper(x)
     }
 
@@ -54,10 +53,10 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commands
     // foundation
     ctx.fillStyle = "#353535"
     ctx.beginPath()
-    ctx.moveTo(x,railsY - 2)
+    ctx.moveTo(x + 10,railsY - 2)
     ctx.lineTo(x + 10,railsY - 6)
     ctx.lineTo(x + 60,railsY - 6)
-    ctx.lineTo(x + 70,railsY - 2)
+    ctx.lineTo(x + 60,railsY - 2)
     ctx.fill()
     // columns
     def drawColumn(x: Int): Unit = {
@@ -85,15 +84,15 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commands
 //    println(x)
     ctx.fillStyle = color
     ctx.beginPath()
-    ctx.moveTo(x, railsY - 13)
-    ctx.lineTo(x + 54, railsY - 13)
-    ctx.lineTo(x + 57, railsY - 12)
+    ctx.moveTo(x + 20, railsY - 11)
+    ctx.lineTo(x + 54, railsY - 11)
+    ctx.lineTo(x + 58, railsY - 10)
     ctx.lineTo(x + 64, railsY - 7)
     ctx.bezierCurveTo(
       x + 67, railsY - 4,
       x + 70, railsY - 2,
       x + 64, railsY - 2)
-    ctx.lineTo(x , railsY - 2)
+    ctx.lineTo(x + 20, railsY - 2)
     ctx.fill()
   }
 }
