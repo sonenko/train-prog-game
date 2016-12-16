@@ -1,12 +1,24 @@
 package train
 package state
 
+import train.editor.Editor
+
 import scala.annotation.tailrec
 
-class Train(initialX: Int, val color: String, commandList: Map[Int, Command]) {
-  var nowX: Int = initialX
-  var toX: Int = initialX
-  var line: Int = 1
+class Train(initialX: Int, val color: String, val name: String) {
+  var nowX: Int = _
+  var toX: Int = _
+  var line: Int = _
+  var commands: Map[Int, Command] = _
+
+  def reset(commands: Map[Int, Command]): Unit = {
+    this.commands = commands
+    nowX = initialX
+    toX = initialX
+    line = 1
+  }
+
+  reset(Map())
 
   override def toString = s"Train($nowX, $toX, $color, $line)"
 
@@ -25,6 +37,7 @@ class Train(initialX: Int, val color: String, commandList: Map[Int, Command]) {
   }
 
   def turn(): Unit = {
+    Editor.onTurn(this)
     @tailrec
     def executeCommand(command: Command): Unit = command match {
       case Empty =>
@@ -46,7 +59,7 @@ class Train(initialX: Int, val color: String, commandList: Map[Int, Command]) {
         }
     }
 
-    commandList.get(line) match {
+    commands.get(line) match {
       case None => Player.stop()
       case Some(cmd) => executeCommand(cmd)
     }

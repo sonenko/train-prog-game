@@ -2,12 +2,13 @@ package train
 package state
 
 object TrainsState {
-  var rearTrain: Train = _
-  var leadTrain: Train = _
+  var rearTrain: Train = new Train(50, "#425275", "rear")
+  var leadTrain: Train = new Train(400, "#625252", "lead")
 
   def reset(): Unit = {
-    rearTrain = new Train(50, "#425275", Commands.extract)
-    leadTrain = new Train(400, "#625252", Commands.extract)
+    val commands = Commands.extract
+    rearTrain.reset(commands)
+    leadTrain.reset(commands)
   }
 
   reset()

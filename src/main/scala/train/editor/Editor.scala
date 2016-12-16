@@ -1,7 +1,10 @@
-package train.editor
+package train
+package editor
 
 import org.scalajs.dom.document
+import org.scalajs.dom.window
 import org.scalajs.dom.raw.Element
+import train.state.Train
 
 object Editor {
   def init (): Unit = {
@@ -15,4 +18,19 @@ object Editor {
       """.stripMargin
     }.mkString("")
   }
+
+  def onTurn(train: Train): Unit = {
+    val id = "active-dot-" + train.name
+    val el = Option(document.getElementById(id)).getOrElse{
+      val element = document.createElement("div")
+      element.id = id
+      element.classList.add("active-dot")
+      element.classList.add("active-dot-" + train.name)
+      element
+    }
+    window.console.log(el)
+    lineNumbers(train.line).appendChild(el)
+  }
+
+  private lazy val lineNumbers = document.querySelectorAll(".line-number")
 }

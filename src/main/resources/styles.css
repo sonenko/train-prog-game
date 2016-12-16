@@ -191,6 +191,27 @@ select {
     width: 30px;
     text-align: right;
     border-right: 1px solid #00CC7D;
+    position: relative;
+}
+
+.active-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: -28px;
+    border-radius: 7px;
+}
+
+.active-dot-rear {
+    background-color: #425275;
+    box-shadow: 0 0 3px #425275;
+    left: -14px;
+}
+
+.active-dot-lead {
+    background-color: #625252;
+    box-shadow: 0 0 3px #625252;
+    left: 3px;
 }
 
 .command-placeholder {
