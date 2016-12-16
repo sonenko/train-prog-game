@@ -1,9 +1,10 @@
-## IN PROGRESS...
-
-### About
+### Programming game "Train" 
 Web game, where player should write pseudo code 
 that will be used by 2 trains and will entail situation 
 when rear train will catch up with the first
+
+### Demo
+https://sonenko.github.io/train-prog-game/index-opt.html
 
 #### run in dev mode
 ```

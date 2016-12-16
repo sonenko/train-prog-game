@@ -26,10 +26,23 @@
     <div class="nav box">
         <h4>Available commands</h4>
         <div id="commands">
-            <div class="command wait" draggable="true" data-index="0">Wait</div>
-            <div class="command goforward" draggable="true" data-index="1">GoForward</div>
+            <div class="command wait" draggable="true" data-index="0">
+                Wait
+                <i class="fa fa-question-circle-o" aria-hidden="true">
+                    <span class="tooltip">Train will wait</span>
+                </i>
+            </div>
+            <div class="command goforward" draggable="true" data-index="1">
+                GoForward
+                <i class="fa fa-question-circle-o" aria-hidden="true">
+                    <span class="tooltip">Train will move forward</span>
+                </i>
+            </div>
             <div class="command goto" draggable="true" data-index="2">
                 GoTo
+                <i class="fa fa-question-circle-o" aria-hidden="true">
+                    <span class="tooltip">Forwards program to specified line in editor</span>
+                </i>
                 <select>
                     <option>1</option>
                     <option>2</option>
@@ -53,7 +66,12 @@
                     <option>20</option>
                 </select>
             </div>
-            <div class="command ifstation" draggable="true" data-index="3">IfStation</div>
+            <div class="command ifstation" draggable="true" data-index="3">
+                IfStation
+                <i class="fa fa-question-circle-o" aria-hidden="true">
+                    <span class="tooltip">Executes next command on the same line if Train at station</span>
+                </i>
+            </div>
         </div>
 
         <h4>Run program</h4>
