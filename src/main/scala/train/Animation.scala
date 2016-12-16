@@ -23,7 +23,7 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int) {
   def draw(): Unit = {
     TrainsState.tick()
     clear()
-    drawStation(265)
+    drawStation(258)
     // lead train
     drawTrain(TrainsState.leadTrain.nowX, TrainsState.leadTrain.color)
     // rear train

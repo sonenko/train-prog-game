@@ -102,11 +102,35 @@ h4 {
 }
 
 .command {
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 1px;
     color: #293134;
     width: 166px;
     height: 16px;
+}
+.command i {
+    color: #293134;
+    cursor: pointer;
+    float: right;
+    margin-left: 10px;
+    position: relative;
+}
+.command i .tooltip {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 1;
+    left: 20px;
+    top: -12px;
+    padding: 7px 12px;
+    box-shadow: 0 0 3px #00CC7D;
+    border-radius: 0px;
+    color: #293134;
+}
+
+.command i:hover .tooltip {
+    display: inline-block;
+    min-width: 100px;
 }
 
 .command.wait {
