@@ -1,6 +1,7 @@
 package train
 
 import org.scalajs.dom.{MouseEvent, document, window}
+import train.editor.Editor
 import train.state._
 
 object Player {
@@ -28,8 +29,9 @@ object Player {
     intervalId = -1
     window.setTimeout(() => {
       TrainsState.reset()
+      Editor.onStop()
+      toggleRunButton()
     }, 0)
-    toggleRunButton()
   }
 
   def toggleRunButton(): Unit = {

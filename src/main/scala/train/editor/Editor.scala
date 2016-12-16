@@ -19,7 +19,7 @@ object Editor {
     }.mkString("")
   }
 
-  def onTurn(train: Train): Unit = {
+  def onTrainAction(train: Train): Unit = {
     val id = "active-dot-" + train.name
     val el = Option(document.getElementById(id)).getOrElse{
       val element = document.createElement("div")
@@ -30,6 +30,12 @@ object Editor {
     }
     window.console.log(el)
     lineNumbers(train.line).appendChild(el)
+  }
+
+  def onStop(): Unit = {
+    document.getElementsByClassName("active-dot").toList.foreach(el => {
+      el.parentNode.removeChild(el)
+    })
   }
 
   private lazy val lineNumbers = document.querySelectorAll(".line-number")

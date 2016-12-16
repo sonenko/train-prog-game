@@ -37,16 +37,17 @@ class Train(initialX: Int, val color: String, val name: String) {
   }
 
   def turn(): Unit = {
-    Editor.onTurn(this)
     @tailrec
     def executeCommand(command: Command): Unit = command match {
       case Empty =>
         nextLine()
         turn()
       case GoForward =>
+        Editor.onTrainAction(this)
         nextLine()
         goForward()
       case Wait =>
+        Editor.onTrainAction(this)
         nextLine()
       case GoTo(line) =>
         goTo(line)
