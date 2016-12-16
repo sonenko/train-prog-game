@@ -3,8 +3,11 @@ package train
 import org.scalajs.dom
 import org.scalajs.dom.CanvasRenderingContext2D
 import org.scalajs.dom.raw.Element
+import train.state.TrainsState
 
-class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commandsEl: Element, codeEl: Element) {
+class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int) {
+  val commandsEl: Element = dom.document.getElementById("commands")
+  val codeEl: Element = dom.document.getElementById("code")
   private val railsY = height / 10 * 9
 
   ctx.fillStyle = "#d5d5d5"
@@ -18,13 +21,13 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int, commands
   }
 
   def draw(): Unit = {
-    State.tick()
+    TrainsState.tick()
     clear()
     drawStation(265)
     // lead train
-    drawTrain(State.leadTrain.nowX, State.leadTrain.color)
+    drawTrain(TrainsState.leadTrain.nowX, TrainsState.leadTrain.color)
     // rear train
-    drawTrain(State.rearTrain.nowX, State.rearTrain.color)
+    drawTrain(TrainsState.rearTrain.nowX, TrainsState.rearTrain.color)
   }
 
   def drawRails(): Unit = {

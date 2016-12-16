@@ -69,14 +69,14 @@ h4 {
     background-color: #629532;
 }
 
-.waiting .run-icon {
+.run-icon {
     width: 0;
     height: 0;
     border-top: 70px solid transparent;
     border-bottom: 70px solid transparent;
     border-left: 70px solid #92C562;
     transform: scaleY(.5);
-    border-radius: 5px;
+    border-radius: 3px;
     margin-left: 45px;
     margin-top: 20px;
 }
@@ -84,8 +84,11 @@ h4 {
 .running .run-icon {
     width: 70px;
     height: 70px;
+    border: none;
     background-color: #92C562;
-    margin-left: 35px;
+    transform: none;
+    margin-left: 36px;
+    margin-top: 0px;
     position: absolute;
     top: 35px;
 }
@@ -106,19 +109,19 @@ h4 {
     height: 16px;
 }
 
-.wait {
+.command.wait {
     background-color: #d5d5d5;
 }
 
-.goforward {
+.command.goforward {
     background-color: #EC7600;
 }
 
-.goto {
+.command.goto {
     background-color: #92C562;
 }
 
-.goto select {
+.command.goto select {
     float: right;
     height: 30px;
     margin-top: -7px;
@@ -137,7 +140,7 @@ select {
     padding-right: 1.5em
 }
 
-.ifstation {
+.command.ifstation {
     background-color: #678BB0;
 }
 

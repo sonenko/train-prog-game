@@ -16,7 +16,7 @@ object DragAndDrop {
 
     def addDragListeners(dragEl: Element): Unit = {
       def dropElems() = {
-        if (Execution.isRunning) Nil
+        if (Player.isRunning) Nil
         else if (dragEl.classList.contains("ifstation")) allDropZoneEls.filter(_.classList.contains("command-placeholder-1"))
         else allDropZoneEls.filter(_.classList.contains("droppable"))
       }
