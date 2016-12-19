@@ -52,6 +52,10 @@ h4 {
     margin-top: 5px;
 }
 
+#commands > .command .fa-remove {
+    display: none;
+}
+
 #run-button {
     width: 140px;
     height: 140px;

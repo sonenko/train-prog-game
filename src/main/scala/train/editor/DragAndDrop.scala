@@ -2,7 +2,7 @@ package train
 package editor
 
 import org.scalajs.dom.raw.{DragEvent, Element}
-import org.scalajs.dom.{console, document}
+import org.scalajs.dom.{MouseEvent, console, document}
 
 import scala.scalajs.js
 
@@ -63,6 +63,15 @@ object DragAndDrop {
         val originalCommand = dragEls(index)
         val command = originalCommand.cloneNode(true).asElement
         command.setAttribute("draggable", "false")
+        // remove button
+        val removeButton = command.querySelector(".fa-remove")
+        def removeOnClick(nextDropZone: Option[Element] = None): Unit = {
+          removeButton.addEventListener("click", (_: MouseEvent) -> {
+            command.parentNode.removeChild(command)
+            nextDropZone.foreach( _.classList.remove("droppable"))
+            nextDropZone.foreach(_.children.toList.foreach(ch => ch.parentNode.removeChild(ch)))
+          })
+        }
         dropZoneEl.children.toList.foreach(ch => ch.parentNode.removeChild(ch))
         dropZoneEl.appendChild(command)
         if (dropZoneEl.classList.contains("command-placeholder-1")) {
@@ -74,14 +83,17 @@ object DragAndDrop {
             // any
             nextDropZone.classList.remove("droppable")
             toDictionary[js.Function0[Unit]](nextDropZone)("removeDropListeners")()
+            removeOnClick()
           } else {
             // ifStation
             nextDropZone.classList.add("droppable")
+            removeOnClick(Some(nextDropZone))
           }
         } else if (dropZoneEl.classList.contains("command-placeholder-2")) {
           // second column
           if (index != 3) {
             // any
+            removeOnClick()
           } else {
             // ifStation
             console.warn("unexpected ifstation command in second column")
