@@ -6,7 +6,6 @@ import org.scalajs.dom.raw.Element
 import train.state.TrainsState
 
 class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int) {
-  dom.window.console.log(width)
   val commandsEl: Element = dom.document.getElementById("commands")
   val codeEl: Element = dom.document.getElementById("code")
   private val railsY = height / 10 * 9
