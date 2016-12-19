@@ -59,7 +59,7 @@ object Modals {
     override val contents: Element = {
       val html =
         """
-          |You loose
+          |You lose
           |<span class="clickable" id="new-game">start new game <i class="fa fa-refresh"></i></span>
           | or
           |<span class="clickable" id="continue-game">continue current game <i class="fa fa-play"></i></span>
