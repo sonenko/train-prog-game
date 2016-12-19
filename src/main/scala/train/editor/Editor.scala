@@ -2,7 +2,6 @@ package train
 package editor
 
 import org.scalajs.dom.document
-import org.scalajs.dom.window
 import org.scalajs.dom.raw.Element
 import train.state.Train
 
@@ -28,7 +27,6 @@ object Editor {
       element.classList.add("active-dot-" + train.name)
       element
     }
-    window.console.log(el)
     lineNumbers(train.line).appendChild(el)
   }
 

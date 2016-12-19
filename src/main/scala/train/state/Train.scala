@@ -24,6 +24,8 @@ class Train(initialX: Int, val color: String, val name: String) {
 
   def isStation: Boolean = nowX < 265 && nowX > 235
 
+  def isAtTheEnd: Boolean = nowX > 1300
+
   def goForward(): Unit = {
     toX = toX + 50
   }
@@ -60,9 +62,16 @@ class Train(initialX: Int, val color: String, val name: String) {
         }
     }
 
-    commands.get(line) match {
-      case None => Player.stop()
-      case Some(cmd) => executeCommand(cmd)
+    if (isAtTheEnd) {
+      Player.stop()
+      Modals.lose()
+    } else {
+      commands.get(line) match {
+        case None =>
+          Player.stop()
+          Modals.lose()
+        case Some(cmd) => executeCommand(cmd)
+      }
     }
   }
 

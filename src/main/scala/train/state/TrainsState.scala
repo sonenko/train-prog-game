@@ -19,8 +19,15 @@ object TrainsState {
   }
 
   def turn(): Unit = {
-    leadTrain.turn()
-    rearTrain.turn()
+    if (isReadCatchUpFirst) {
+      Player.stop()
+      Modals.win()
+    } else {
+      leadTrain.turn()
+      rearTrain.turn()
+    }
   }
+
+  def isReadCatchUpFirst: Boolean = rearTrain.nowX >= leadTrain.nowX
 }
 
