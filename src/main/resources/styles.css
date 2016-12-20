@@ -45,14 +45,14 @@ h4, h4 * {
 }
 
 .container {
-    width: 1000px;
+    width: 950px;
     margin: auto;
 }
 
 /* MENU */
 .nav {
     float: left;
-    width: 230px;
+    width: 250px;
     margin-bottom: 20px;
     margin-right: 20px;
 }
@@ -115,7 +115,7 @@ h4, h4 * {
 /* EDITOR */
 #editor {
     float: left;
-    width: 600px;
+    width: 620px;
     margin-bottom: 20px;
     margin-right: 20px;
 }
@@ -124,7 +124,7 @@ h4, h4 * {
     padding: 10px 20px;
     border-radius: 1px;
     color: #293134;
-    width: 166px;
+    width: 190px;
     height: 16px;
 }
 .command i {
@@ -234,7 +234,7 @@ select {
 }
 
 .command-placeholder {
-    width: 216px;
+    width: 231px;
     height: 32px;
     padding: 0px 0px 5px 0px;
     margin: 0 0 0 2px;

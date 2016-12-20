@@ -16,31 +16,31 @@
 </div>
 
 <h4 class="text-center">
-    Make the rear train to catch up the front one using available commands below
+    Make the rear train to catch up the front one using available commands below.<br>
 </h4>
 
 <canvas id="canvas" height="120" width="1400"></canvas>
 
 <div class="container">
     <div class="nav box">
-        <h4 class="text-center">Available commands</h4>
+        <h4 class="text-center">Available commands,<br> drag commands from here</h4>
         <div id="commands">
             <div class="command wait" draggable="true" data-index="0">
-                Wait
+                Stay 1 second
                 <i class="fa fa-remove" aria-hidden="true"></i>
                 <i class="fa fa-question-circle-o" aria-hidden="true">
-                    <span class="tooltip">Train will wait</span>
+                    <span class="tooltip">Train will do nothing for 1 second</span>
                 </i>
             </div>
             <div class="command goforward" draggable="true" data-index="1">
-                GoForward
+                Move 1 second
                 <i class="fa fa-remove" aria-hidden="true"></i>
                 <i class="fa fa-question-circle-o" aria-hidden="true">
-                    <span class="tooltip">Train will move forward</span>
+                    <span class="tooltip">Train will move forward for 1 second</span>
                 </i>
             </div>
             <div class="command goto" draggable="true" data-index="2">
-                GoTo
+                Jump to line
                 <i class="fa fa-remove" aria-hidden="true"></i>
                 <i class="fa fa-question-circle-o" aria-hidden="true">
                     <span class="tooltip">Forwards program to specified line in editor</span>
@@ -69,10 +69,10 @@
                 </select>
             </div>
             <div class="command ifstation" draggable="true" data-index="3">
-                IfStation
+                Execute if on station
                 <i class="fa fa-remove" aria-hidden="true"></i>
                 <i class="fa fa-question-circle-o" aria-hidden="true">
-                    <span class="tooltip">Executes next command on the same line if Train at station</span>
+                    <span class="tooltip">Executes command to the right if train on station</span>
                 </i>
             </div>
         </div>
@@ -84,7 +84,7 @@
     </div>
 
     <div id="editor" class="box">
-        <h4 class="text-center">Program zone (drop commands from left here)</h4>
+        <h4 class="text-center">Program zone (drop commands from left here),<br> it executes independently for each train</h4>
         <ul class="code-lines"></ul>
     </div>
 </div>
