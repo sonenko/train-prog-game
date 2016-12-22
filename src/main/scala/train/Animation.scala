@@ -1,19 +1,37 @@
 package train
 
 import org.scalajs.dom
+import org.scalajs.dom.window
 import org.scalajs.dom.CanvasRenderingContext2D
 import org.scalajs.dom.raw.Element
+import train.Hacks.CanvasSettings
 import train.state.TrainsState
 
-class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int) {
+object Animation {
+
+  val CanvasSettings(width, height, ctx) = Hacks.scaleToRetinaSize(dom.document.getElementById("canvas"))
   val commandsEl: Element = dom.document.getElementById("commands")
   val codeEl: Element = dom.document.getElementById("code")
   private val railsY = height / 10 * 9
+  private var interval: Int = -1
 
-  ctx.fillStyle = "#d5d5d5"
-  ctx.fillRect(0, 0, width, height)
-  drawRails()
-  dom.window.setInterval(() => draw(), 30)
+  def init (): Unit = {
+    ctx.fillStyle = "#d5d5d5"
+    ctx.fillRect(0, 0, width, height)
+    drawRails()
+    draw()
+  }
+
+  def play(): Unit = {
+    if (interval != -1) {
+      window.clearInterval(interval)
+    }
+    interval = window.setInterval(() => draw(), 30)
+  }
+
+  def stop(): Unit = {
+    window.clearInterval(interval)
+  }
 
   def clear(): Unit = {
     ctx.fillStyle = "#d5d5d5"
@@ -21,6 +39,7 @@ class Animation(ctx: CanvasRenderingContext2D, width: Int, height: Int) {
   }
 
   def draw(): Unit = {
+    window.console.log("animating")
     TrainsState.tick()
     clear()
     drawStation(258)
