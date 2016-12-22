@@ -1,5 +1,6 @@
 package train
 
+
 import org.scalajs.dom.{MouseEvent, document, window}
 import train.editor.Editor
 import train.state._
@@ -22,6 +23,7 @@ object Player {
       TrainsState.turn()
     }, 800)
     toggleRunButton()
+    Animation.play()
   }
 
   def stop(): Unit = {
@@ -32,6 +34,7 @@ object Player {
       Editor.onStop()
       toggleRunButton()
     }, 0)
+    Animation.stop()
   }
 
   def toggleRunButton(): Unit = {

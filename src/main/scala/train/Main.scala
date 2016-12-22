@@ -11,8 +11,14 @@ object Main {
   Editor.init()
   DragAndDrop.init()
   Player.init()
+  Animation.init()
 
-  val canvas2dSettings: CanvasSettings = Hacks.scaleToRetinaSize(dom.document.getElementById("canvas"))
-  new Animation(canvas2dSettings.canvas, canvas2dSettings.width, canvas2dSettings.height)
+
+
+
+
+//  new Animation(canvas2dSettings.canvas, canvas2dSettings.width, canvas2dSettings.height)
+
+
 }
 
