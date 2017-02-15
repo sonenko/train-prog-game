@@ -43,7 +43,7 @@ class WinModal extends Modal {
         |IMHO you are capable to learn programming languages :)<br>
         |share:<br>
         |<div id="socials">
-        |    <a class="clickable" target="_blank" href="http://www.facebook.com/share.php?u=https%3A%2F%2Fsonenko.github.io%2Ftrain-prog-game%2Findex-opt.html&title=I%27m%20winner%20at%20train-programming-game"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        |    <a class="clickable" target="_blank" href="http://www.facebook.com/share.php?u=https%3A%2F%2Fsonenko.github.io%2Ftrain-prog-game%2Findex-opt.html&title=I%27m%20winner%20at%20train-programming-game&picture=https%3A%2F%2Fsonenko.github.io%2Ftrain-prog-game%2Fscreenshot.png"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
         |    <a class="clickable" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsonenko.github.io%2Ftrain-prog-game%2Findex-opt.html&title=I%27m%20winner%20at%20train-programming-game" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
         |</div>
       """.stripMargin
