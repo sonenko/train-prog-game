@@ -77,7 +77,7 @@ h4, h4 * {
     background-color: #212121;
     border-radius: 70px;
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     box-shadow: 0 0 10px #00CC7D;
     cursor: pointer;
     transition: background-color 0.5s;

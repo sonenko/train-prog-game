@@ -8,7 +8,7 @@ import train.state.Train
 object Editor {
   def init (): Unit = {
     val codeLinesEl: Element = document.querySelector(".code-lines")
-    codeLinesEl.innerHTML = (1 to 20).map { n =>
+    codeLinesEl.innerHTML = (1 to 10).map { n =>
       s"""<li>
          |  <div class="line-number">$n</div>
          |  <div class="command-placeholder command-placeholder-1 droppable"></div>
